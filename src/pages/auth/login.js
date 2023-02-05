@@ -1,3 +1,4 @@
+import styles from 'src/styles/Home.module.css'
 import { FcGoogle } from 'react-icons/fc'
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '../../../utils/firebase';
@@ -34,11 +35,16 @@ export default function Login() {
 
   return (
     <>
+     <div className={styles.container}>
+  
+    
       <h1>Login</h1>
       <button onClick={GoogleLogin}>
         <FcGoogle />
         sign in with google
       </button>
+   
+    </div>
     </>
   )
 }
