@@ -17,11 +17,11 @@ export default function Nav( ){
 <li className={styles.li}>
     <Link href="/blgmain" className={styles.links}>Blog</Link>
     </li>
-<ul>
+
   { !user && (
     <li className={styles.li}>
   <Link href={"/auth/login"} className={styles.links}>
-   sign in 
+   Sign In 
   </Link> 
   </li>
   )}
@@ -37,8 +37,12 @@ export default function Nav( ){
      <Link href={"/create"} className={styles.links}>Create</Link>
      </li>
   )}
-</ul>
+
     </nav>
     </div>
   )
 }
+
+
+request.auth.email == 'pizzano.nicole@gmail.com';
+request.time < timestamp.date(2023, 3, 6);
