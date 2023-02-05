@@ -44,5 +44,3 @@ export default function Nav( ){
 }
 
 
-request.auth.email == 'pizzano.nicole@gmail.com';
-request.time < timestamp.date(2023, 3, 6);
