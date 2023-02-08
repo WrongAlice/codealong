@@ -9,6 +9,8 @@ export default function Nav( ){
   const [ user, loading ] = useAuthState(auth)
   const [ admin, setAdmin ] = useAuthState(auth)
 
+ 
+
 
   return (
     <div className={styles.top}>
@@ -22,15 +24,24 @@ export default function Nav( ){
     <Link href="/blgmain" className={styles.links}>Blog</Link>
     </li>
 
+{ !user? (
     <li className={styles.li}>
     <Link href="/auth/signup" className={styles.links}>Sign-Up</Link>
     </li>
+) : (
+  ''
+) }
+
+
   
-      { user && (
+  { ! user ? (
     <li className={styles.li}>
     <Link href={"/auth/login"} className={styles.links}> Sign In</Link> 
     </li>
-            )}
+) : (
+  ''
+) }
+
 
       { user && (
     <li className={styles.li}>
