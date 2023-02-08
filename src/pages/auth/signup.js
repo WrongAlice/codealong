@@ -33,24 +33,23 @@ import { useAuthState } from 'react-firebase-hooks/auth';
     
           return (
         <>
-        <div className={styles.textCont}>
-            <h2> Sign Up </h2>
+        <div className={styles.main}>
+            <h2 className={styles.h2}> Sign Up </h2>
             </div>
             <div className={styles.container}>
             <div className={styles.inputCont}>
                 <input className={styles.input}
                   type="text"
-                  
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Full Name"
+                  placeholder="User Name"
                 />
                  <input className={styles.input}
                   type="text"
                   
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="E-mail Address"
+                  placeholder="E-mail"
                 />
                 <input className={styles.input}
                   type="password"
@@ -62,8 +61,9 @@ import { useAuthState } from 'react-firebase-hooks/auth';
                   Register
                 </button>
             
-                <div className={styles.txt}>
-                  Already have an account? <Link href="/auth/login">Sign in here </Link>
+                <div className={styles.linkCont}>
+               
+               <p> Want to sign up with Google?  <Link className={styles.hyperlink} href="/auth/login">Sign in </Link></p> 
                 </div>
               </div>
             </div>

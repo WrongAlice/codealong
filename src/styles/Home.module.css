@@ -314,10 +314,10 @@
 }
 
 .cpContainer {
-  width: 500px;
+  width: 600px;
   height: auto;
   padding: 20px;
-  background-color: black;
+  background: radial-gradient(circle at 3% 7.4%, rgb(207, 0, 243) 0%, rgb(0, 240, 120) 90%);
   border-radius: 12px;
   color: white;
   display: flex;

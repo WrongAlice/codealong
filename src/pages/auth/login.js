@@ -30,21 +30,18 @@ export default function Login() {
 
   return (
     <>
-    <div className={styles.textCont}>
-    <h2>Login</h2>
+    <div className={styles.main}>
+    <h2 className={styles.h2}>Login</h2>
     </div>
      <div className={styles.container}>
    <div className={styles.inputCont}>
-      <button className={styles.gbtn} onClick={signInWithGoogle}>
-        <FcGoogle />
-        sign in with google
-      </button>
+     
  
       <input className={styles.input}
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="E-mail Address"
+          placeholder="E-mail"
         />
      
       
@@ -64,10 +61,18 @@ export default function Login() {
       onClick={() => logInWithEmailAndPassword(email, password)}>login 
         </button>
 
-   
-        <Link href={"/reset"} 
-        onClick={() => sendPasswordReset(email)}>reset password
+        <button className={styles.gbtn} onClick={signInWithGoogle}>
+        <FcGoogle />
+        sign in with google
+      </button>
+
+      <div className={styles.linkCont}>
+        <p> forgot something? 
+        </p>
+        <Link className={styles.hyperlink} href={"/reset"} 
+        onClick={() => sendPasswordReset(email)}>Reset Password
         </Link>
+        </div>
         </div>
         </div>
     </>
@@ -75,3 +80,4 @@ export default function Login() {
 
   )
 }
+

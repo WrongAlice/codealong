@@ -1,5 +1,4 @@
-
-  .main {
+.main {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,7 +28,7 @@
   
   .btn {
     font-weight: 100;
-    min-width: 7rem;
+    min-width: 13rem;
     padding: 1rem;
     border: none;
     font-size: 15px;
@@ -48,57 +47,7 @@
     filter: brightness(90%);
   }
   
-  .inputCont {
-    display: flex;
-    flex-direction: column;
-    width: 500px;
-    min-width: 300px;
-    /* margin-top: 2rem;
-    margin-bottom: 2rem; */
-    /* padding: 40px 50px 40px 50px; */
-    padding: 40px;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    /* align-content: center; */
-    border: 1px solid rgba(200, 200, 200, 0.521);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.653),
-      0 4px 6px -4px rgb(0 0 0 / 0.1);
-    background: rgb(255, 255, 255);
-  }
  
-  
-  .input {
-    font-family: inherit;
-    border: 1px solid rgb(203, 199, 199);
-    border: 2.5px solid charcoal;
-    outline: 0;
-    font-size: 1.1rem;
-    padding: 15px;
-    background: transparent;
-    margin-bottom: 2.5rem;
-    box-shadow: 0 10px 19px -5px silver;
-  
-  }
-  
-  .input:focus {
-    padding: 7px 0 6px 11px;
-    border-width: 2.5px;
-    /* border-image: linear-gradient(to right, rgb(0, 0, 255), rgb(140, 0, 255), rgb(0, 208, 204)); */
-    border-image: radial-gradient(circle at 3% 7.4%, rgb(0, 144, 243) 0%, rgb(0, 86, 240) 90%);
-    border-image-slice: 1;
-  }
-  
-  
- 
-  
-  .border {
-    border-top: solid rgb(0, 0, 0) .1rem;
-    width: 80vw;
-    max-width: 900px;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-  }
 
   .linkCont {
     display: flex;

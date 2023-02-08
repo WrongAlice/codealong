@@ -10,6 +10,7 @@ export default function CreatePost({ isAuth }) {
   const [title, setTitle] = useState("");
   const [postText, setPostText] = useState("");
   const [ user, loading ] = useAuthState(auth)
+  const [isAuthorized, setIsAuthorized] = useState(false);
 
   const postsCollectionRef = collection(db, "posts");
   const route = useRouter();  
@@ -20,7 +21,7 @@ export default function CreatePost({ isAuth }) {
       postText,
       author: { name: auth.currentUser.displayName, id: auth.currentUser.uid },
     });
-    route.push("/");
+    route.push("/blgmain");
     
   };
 
@@ -32,12 +33,26 @@ export default function CreatePost({ isAuth }) {
     }
   }, []);
 
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user && user.uid === 'IlcHLjGNnKXI3uZzOBlThL37nz03') {
+        setIsAuthorized(true);
+      } else {
+        setIsAuthorized(false);
+      }
+    });
+  }, []);
+
 
 // if(loading) return <h1>Loading...</h1>
 // if(!user) route.push("/auth/login");
 // if(user) 
 
   return (
+
+    <>
+    {isAuthorized && (
+      
      <div className={styles.container}>
     <div className={styles.createPostPage}>
       <div className={styles.cpContainer}>
@@ -64,6 +79,14 @@ export default function CreatePost({ isAuth }) {
       </div>
     </div>
     </div>
+    )} 
+      <h1>Sorry pal, looks like youre NOT AUTHORIZED</h1>
+      <h2> too bad </h2>
+    
+
+    </>
+
+
   );
 }
 

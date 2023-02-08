@@ -5,11 +5,12 @@ import { auth } from '../utils/firebase'
 
 
 
+
 export default function Nav( ){
   const [ user, loading ] = useAuthState(auth)
   const [ admin, setAdmin ] = useAuthState(auth)
 
- 
+
 
 
   return (
@@ -32,15 +33,14 @@ export default function Nav( ){
   ''
 ) }
 
-
   
-  { ! user ? (
+  {/* { ! user ? (
     <li className={styles.li}>
     <Link href={"/auth/login"} className={styles.links}> Sign In</Link> 
     </li>
 ) : (
   ''
-) }
+) } */}
 
 
       { user && (
@@ -49,11 +49,13 @@ export default function Nav( ){
      </li>
              )}
 
-      { user && (
+      { user  ? (
      <li className={styles.li}>
      <Link href={"/create"} className={styles.links}>Create</Link>
      </li>
-              )}
+      ) : (
+        ''
+      ) }
 
     </nav>
     </div>
