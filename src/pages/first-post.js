@@ -6,9 +6,6 @@ import post1 from 'assets/post1.png';
 
 
 
-
-
-
 export default function FirstPost() {
 
   
