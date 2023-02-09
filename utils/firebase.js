@@ -18,7 +18,7 @@ apiKey: process.env.NEXT_PUBLIC_API_KEY,
 
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth();
+const auth = getAuth(app);
 const db = getFirestore();
 
 
