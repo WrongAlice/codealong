@@ -34,7 +34,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
           return (
         <>
         <div className={styles.main}>
-            <h2 className={styles.h2}> Sign Up </h2>
+            <h2 className={styles.h2}> Create an Account </h2>
             </div>
             <div className={styles.container}>
             <div className={styles.inputCont}>
@@ -67,6 +67,19 @@ import { useAuthState } from 'react-firebase-hooks/auth';
                 </div>
               </div>
             </div>
+            <style jsx global>{`
+        html,
+        body {
+          padding: 0;
+          margin: 0;
+          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+            sans-serif;
+        }
+        * {
+          box-sizing: border-box;
+        }
+      `}</style>
             </>
           )
         }

@@ -31,7 +31,9 @@ export default function Login() {
   return (
     <>
     <div className={styles.main}>
-    <h2 className={styles.h2}>Login</h2>
+    <h2 className={styles.h2}>Welcome, sign in to continue </h2>
+    <div className={styles.container}>
+ 
     </div>
      <div className={styles.container}>
    <div className={styles.inputCont}>
@@ -62,19 +64,36 @@ export default function Login() {
         </button>
 
         <button className={styles.gbtn} onClick={signInWithGoogle}>
-        <FcGoogle />
+        <FcGoogle className={styles.btnsize}/>
         sign in with google
       </button>
+      <div className={styles.linkCont}>
+        <p> Need an account?</p> 
+        <Link className={styles.hyperlink} href={"/auth/signup"}>Create account
+        </Link>
+      </div>
 
       <div className={styles.linkCont}>
-        <p> forgot something? 
-        </p>
         <Link className={styles.hyperlink} href={"/reset"} 
         onClick={() => sendPasswordReset(email)}>Reset Password
         </Link>
         </div>
         </div>
         </div>
+        </div>
+        <style jsx global>{`
+        html,
+        body {
+          padding: 0;
+          margin: 0;
+          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+            sans-serif;
+        }
+        * {
+          box-sizing: border-box;
+        }
+      `}</style>
     </>
     
 

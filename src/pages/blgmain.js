@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import styles from 'src/styles/Home.module.css';
+import styles from 'src/styles/blgmain.module.css';
 import React, { useEffect, useState } from "react";
 import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
 import { auth, db } from "utils/firebase.js";
@@ -22,15 +22,19 @@ function BlgMain({ isAuth }) {
     await deleteDoc(postDoc);
   };
   return (
-    <div className="homePage">
+    <div className={styles.homePage}>
       {postLists.map((post) => {
         return (
-          <div className="post">
-            <div className="postHeader">
-              <div className="title">
+          <div className={styles.post}>
+             <h2 className={styles.smallText}> {post.date} </h2>
+             <h3 className={styles.symbol}>by: {post.author.name}</h3>
+            <div className={styles.postHeader}>
+         
+              <div className={styles.title}>
                 <h1> {post.title}</h1>
+               
               </div>
-              <div className="deletePost">
+              <div className="deletePost'">
                 {isAuth && post.author.id === auth.currentUser.uid && (
                   <button
                     onClick={() => {
@@ -44,10 +48,26 @@ function BlgMain({ isAuth }) {
               </div>
             </div>
             <div className="postTextContainer"> {post.postText} </div>
-            <h3>@{post.author.name}</h3>
+          {/* add a way to open up the entire blog post here */}
+            <div className={styles.linky}>see more...
+            </div>
           </div>
+         
         );
       })}
+         <style jsx global>{`
+        html,
+        body {
+          padding: 0;
+          margin: 0;
+          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+            sans-serif;
+        }
+        * {
+          box-sizing: border-box;
+        }
+      `}</style>
     </div>
   );
 }

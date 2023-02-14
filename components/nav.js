@@ -27,7 +27,7 @@ export default function Nav( ){
 
 { !user? (
     <li className={styles.li}>
-    <Link href="/auth/signup" className={styles.links}>Sign-Up</Link>
+    <Link href="/auth/login" className={styles.links}>Sign-In</Link>
     </li>
 ) : (
   ''

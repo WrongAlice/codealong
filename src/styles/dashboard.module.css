@@ -9,22 +9,26 @@
 
   .container {
     display: flex;
-    margin-top: 3rem;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 40vh;
+    height: 100vh;
   }
   
   
+
   .h2 {
     font-weight: 100;
-    font-size: 3rem;
+    font-size: 2.3rem;
     word-spacing: .3rem;
-    margin-top: 9rem;
-    margin-bottom: 3rem;
+   margin-top:-25rem;
+    margin-bottom: 5rem;
   }
   
+
+  .txt{
+    margin-bottom: 5rem;
+  }
   
   .btn {
     font-weight: 100;
@@ -37,7 +41,7 @@
     color: white;
     outline: none;
     border-radius: .2rem;
-    background: radial-gradient(circle at 3% 7.4%, rgb(207, 0, 243) 0%, rgb(0, 240, 120) 90%);
+    background: radial-gradient(circle at 3% 7.4%, rgb(236, 161, 216) 0%, rgb(80, 15, 82) 90%);
   /*   box-shadow: 0 10px 15px -3px grey, 0 4px 6px -4px rgb(0 0 0 / 0.1); */
     letter-spacing: 1px;
   }

@@ -3,12 +3,13 @@ import { addDoc, collection } from "firebase/firestore";
 import { db, auth } from '/utils/firebase';
 import { useRouter } from 'next/router';
 import { useAuthState } from 'react-firebase-hooks/auth'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/create.module.css'
 
 
 export default function CreatePost({ isAuth }) {
   const [title, setTitle] = useState("");
   const [postText, setPostText] = useState("");
+  const [date, setDate] = useState("")
   const [ user, loading ] = useAuthState(auth)
   const [isAuthorized, setIsAuthorized] = useState(false);
 
@@ -19,6 +20,7 @@ export default function CreatePost({ isAuth }) {
     await addDoc(postsCollectionRef, {
       title,
       postText,
+      date,
       author: { name: auth.currentUser.displayName, id: auth.currentUser.uid },
     });
     route.push("/blgmain");
@@ -65,8 +67,17 @@ export default function CreatePost({ isAuth }) {
               setTitle(event.target.value);
             }}
           />
+           <div className={styles.inputGp}>
+          <label> Date:</label>
+          <textarea
+            placeholder="Date..."
+            onChange={(event) => {
+              setDate(event.target.value);
+            }}
+          />
         </div>
-        <div className={styles.inputGp}>
+        </div>
+       <div className={styles.inputGp}>
           <label> Post:</label>
           <textarea
             placeholder="Post..."
@@ -74,16 +85,30 @@ export default function CreatePost({ isAuth }) {
               setPostText(event.target.value);
             }}
           />
-        </div>
+        </div> 
         <button onClick={createPost}> Submit Post</button>
       </div>
     </div>
     </div>
     )} 
+    <div className={styles.rejection}>
       <h1>Sorry pal, looks like youre NOT AUTHORIZED</h1>
       <h2> too bad </h2>
+      </div>
     
-
+      <style jsx global>{`
+        html,
+        body {
+          padding: 0;
+          margin: 0;
+          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+            sans-serif;
+        }
+        * {
+          box-sizing: border-box;
+        }
+      `}</style>
     </>
 
 
