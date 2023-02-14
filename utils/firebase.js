@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import {GoogleAuthProvider, getAuth,signInWithPopup, signInWithEmailAndPassword, 
+import {GoogleAuthProvider, getAuth, signInWithPopup, signInWithEmailAndPassword, 
         createUserWithEmailAndPassword, sendPasswordResetEmail, signOut,} from "firebase/auth";
 import { getFirestore, query, getDocs, collection, where, addDoc,} from "firebase/firestore";
 
@@ -8,7 +8,7 @@ import { getFirestore, query, getDocs, collection, where, addDoc,} from "firebas
 
 
 const firebaseConfig = {
-apiKey: process.env.NEXT_PUBLIC_API_KEY,
+  apiKey: process.env.NEXT_PUBLIC_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_AUTH_DOMAIN,
   projectId:  process.env.NEXT_PUBLIC_PROJECT_ID,
   storageBucket:  process.env.NEXT_PUBLIC_STORAGEBUCKET,
