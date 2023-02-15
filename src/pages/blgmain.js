@@ -3,15 +3,22 @@ import styles from 'src/styles/blgmain.module.css';
 import React, { useEffect, useState } from "react";
 import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
 import { auth, db } from "utils/firebase.js";
+import { useAuthState } from 'react-firebase-hooks/auth'
 
-function BlgMain({ isAuth }) {
+function BlgMain({ auth }) {
   const [postLists, setPostList] = useState([]);
+  const [isOpen, setIsOpen] = useState(true)
+  const [openItems, setOpenItems] = useState([]);
+
+  const [isAuthorized, setIsAuthorized] = useState(false);
   const postsCollectionRef = collection(db, "posts");
+
 
   useEffect(() => {
     const getPosts = async () => {
       const data = await getDocs(postsCollectionRef);
       setPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+ 
     };
 
     getPosts();
@@ -21,39 +28,48 @@ function BlgMain({ isAuth }) {
     const postDoc = doc(db, "posts", id);
     await deleteDoc(postDoc);
   };
+
+const toggle = () => {
+  setIsOpen(!isOpen)
+}
+
+const toggleItem = (index) => {
+  if (openItems.includes(index)) {
+    setOpenItems(openItems.filter((i) => i !== index));
+  } else {
+    setOpenItems([...openItems, index]);
+  }
+};
+
+
   return (
     <div className={styles.homePage}>
-      {postLists.map((post) => {
+      {postLists.map((post, index) => {
         return (
+          <div key={index}>
           <div className={styles.post}>
-             <h2 className={styles.smallText}> {post.date} </h2>
-             <h3 className={styles.symbol}>by: {post.author.name}</h3>
+           
             <div className={styles.postHeader}>
          
-              <div className={styles.title}>
-                <h1> {post.title}</h1>
-               
-              </div>
-              <div className="deletePost'">
-                {isAuth && post.author.id === auth.currentUser.uid && (
-                  <button
-                    onClick={() => {
-                      deletePost(post.id);
-                    }}
-                  >
-                    {" "}
-                    &#128465;
-                  </button>
-                )}
-              </div>
-            </div>
-            <div className="postTextContainer"> {post.postText} </div>
-          {/* add a way to open up the entire blog post here */}
-            <div className={styles.linky}>see more...
-            </div>
+                 <h2 className={styles.date}> {post.date} </h2>
+             <h3 className={styles.name}>by: {post.author.name}</h3>
+            <h1 className={styles.pageTitle}> 
+            {post.title} </h1>
+            </div> 
+            <button onClick={() => toggleItem(index)}>
+      {openItems.includes(index) ? "-" : "+"}
+    </button>
+    {openItems.includes(index) && <div className={styles.postTextContainer}> <p>{post.postText}</p> </div>}
+               {/* { isAuthorized && post.author.id === auth.currentUser.uid && ( 
+                <div className={styles.delete}>
+                  <button onClick={() => {deletePost(post.id) }}> &#128465; </button>
+                  </div>
+                 )}  */}
+            
+          </div> 
           </div>
-         
         );
+        
       })}
          <style jsx global>{`
         html,

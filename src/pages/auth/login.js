@@ -68,7 +68,7 @@ export default function Login() {
         sign in with google
       </button>
       <div className={styles.linkCont}>
-        <p> Need an account?</p> 
+        <p> Need something else?</p> 
         <Link className={styles.hyperlink} href={"/auth/signup"}>Create account
         </Link>
       </div>

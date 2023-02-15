@@ -53,7 +53,7 @@ export default function CreatePost({ isAuth }) {
   return (
 
     <>
-    {isAuthorized && (
+    { isAuthorized ? (
       
      <div className={styles.container}>
     <div className={styles.createPostPage}>
@@ -90,13 +90,14 @@ export default function CreatePost({ isAuth }) {
       </div>
     </div>
     </div>
-    )} 
+    ) : (
     <div className={styles.rejection}>
       <h1>Sorry pal, looks like youre NOT AUTHORIZED</h1>
-      <h2> too bad </h2>
+      <h2> too bad now hit the road</h2>
       </div>
+    )}
     
-      <style jsx global>{`
+  <style jsx global>{`
         html,
         body {
           padding: 0;
