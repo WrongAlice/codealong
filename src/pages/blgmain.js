@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Footer from 'components/footer';
 import styles from 'src/styles/blgmain.module.css';
 import React, { useEffect, useState } from "react";
 import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
@@ -68,8 +69,9 @@ const toggleItem = (index) => {
             
           </div> 
           </div>
+          
         );
-        
+      
       })}
          <style jsx global>{`
         html,
@@ -84,6 +86,7 @@ const toggleItem = (index) => {
           box-sizing: border-box;
         }
       `}</style>
+         <Footer />
     </div>
   );
 }

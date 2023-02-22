@@ -27,9 +27,10 @@
 
 .postHeader{
     color:rgb(182, 118, 150);
+    font-size:1.2rem;
     margin-bottom: 3rem;
     text-align: center;
-    margin-top: -3rem;
+    margin-top: -2rem;
     margin-bottom:2rem;
     font-weight: 100;
 
@@ -38,24 +39,20 @@
 
 .date {
     display: inline;
-    justify-content: space-evenly;
-    /* align-items: flex-start; */
     font-weight: 100;
     font-size: 1rem;
     padding:1rem;
-    margin:10px;
+    margin:50px;
 }
 
 
 .name {
     display: inline;
-    /* align-items: flex-start; */
-    justify-content: space-around;
     text-align: center;
     font-size: 1rem;
     padding:1rem;
     font-weight: 100;
-    margin:10px;
+    margin:50px;
 
 }
 
