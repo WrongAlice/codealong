@@ -3,16 +3,32 @@ import Footer from 'components/footer';
 import styles from 'src/styles/blgmain.module.css';
 import React, { useEffect, useState } from "react";
 import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
-import { auth, db } from "utils/firebase.js";
+import { auth, db } from "/utils/firebase";
 import { useAuthState } from 'react-firebase-hooks/auth'
+import { AiFillDelete, FaBeer } from 'react-icons/ai';
 
-function BlgMain({ auth }) {
+function BlgMain({ isAuth }) {
   const [postLists, setPostList] = useState([]);
+  const [ppl, setPpl] = useState([])
   const [isOpen, setIsOpen] = useState(true)
   const [openItems, setOpenItems] = useState([]);
+  const [ user, loading ] = useAuthState(auth)
 
-  const [isAuthorized, setIsAuthorized] = useState(false);
+
+  // const [isAuthorized, setIsAuthorized] = useState(false);
   const postsCollectionRef = collection(db, "posts");
+  // const usersCollectionRef = collection(db, "users")
+
+  // useEffect(() => {
+  //   const getUsers = async () => {
+  //     const personData = await getDocs(usersCollectionRef);
+  //     setPpl(personData.docs.map((docu) => ({...docu.personData, id: docu.id})))
+
+  //   }
+
+  //   getUsers()
+  // }, [])
+  // console.log(ppl)
 
 
   useEffect(() => {
@@ -23,7 +39,7 @@ function BlgMain({ auth }) {
     };
 
     getPosts();
-  }, []);
+  }, [postLists]);
 
   const deletePost = async (id) => {
     const postDoc = doc(db, "posts", id);
@@ -61,17 +77,29 @@ const toggleItem = (index) => {
       {openItems.includes(index) ? "-" : "+"}
     </button>
     {openItems.includes(index) && <div className={styles.postTextContainer}> <p>{post.postText}</p> </div>}
-               {/* { isAuthorized && post.author.id === auth.currentUser.uid && ( 
-                <div className={styles.delete}>
-                  <button onClick={() => {deletePost(post.id) }}> &#128465; </button>
-                  </div>
-                 )}  */}
             
+         
+           { user && user.uid === 'IlcHLjGNnKXI3uZzOBlThL37nz03'?  (
+                <div className={styles.delete}>
+                  <button onClick={() => {deletePost(post.id) }}> <AiFillDelete/> </button>
+                  </div>
+                 
+                  
+         ) : ( " "
+        )  
+        
+    
+       }
+    
+       
+       
+          
+          
           </div> 
           </div>
-          
+           
         );
-      
+           
       })}
          <style jsx global>{`
         html,

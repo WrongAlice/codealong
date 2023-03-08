@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Footer from '../../components/footer';
+import Nav from '../../components/nav';
 import banner from 'assets/banner.png';
 import post1 from 'assets/post1.png';
 import post2 from 'assets/post2.png';
@@ -19,7 +20,6 @@ export default function Home() {
     <div className={styles.container}>
      
       <main className={styles.main}>
-
         <div className={styles.image}>
         <Image
         alt="banner image"
@@ -32,6 +32,7 @@ export default function Home() {
         }}
       />
         </div>
+        
 
         <div className={styles.description}>
         <div className={styles.descLeft}>

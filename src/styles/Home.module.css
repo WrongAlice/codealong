@@ -22,11 +22,13 @@
   padding: .1rem;
   justify-content: center;
   width:100%; 
+ 
+
 }
 
 
 .image {
-  margin-top: -79px;
+  margin-top: -80px;
   margin-bottom: -35px; 
 }
 
@@ -39,6 +41,8 @@
   text-decoration: none;
   justify-content: center;
   font-size:16px;
+
+ 
 }
 
 
@@ -214,7 +218,7 @@
   margin: 2rem;
   padding: 3rem;
   width: 100%;
-  background-color: rgb(238, 184, 184); 
+  background-color:rgb(229, 154, 189);
 }
 
 .descLeft {

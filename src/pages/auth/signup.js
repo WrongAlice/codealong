@@ -19,6 +19,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
           const [password, setPassword] = useState("");
           const [name, setName] = useState("");
           const [user, loading, error] = useAuthState(auth);
+          // const [admin, setAdmin] = useState("false")
         
     
     
